@@ -12,6 +12,7 @@ public class Axe : MonoBehaviour {
 
 
     private Vector3 vecRot;
+    public bool canControl;
 
     public GameObject[] listOfCommandControl;
 
@@ -21,45 +22,51 @@ public class Axe : MonoBehaviour {
         isMovingForward = true;
         isMovingBackward = false;
         vecRot = transform.eulerAngles;
+        canControl = false;
 
         listOfCommandControl = GameObject.FindGameObjectsWithTag("CommandControl");
     }
 
     void Update ()
     {
-        if (Input.GetKeyDown("left"))
+        if (canControl)
         {
-            isMovingBackward = true;
-            isMovingForward = false;
-            foreach (GameObject commandControl in listOfCommandControl)
+            if (Input.GetKeyDown("left"))
             {
-                commandControl.GetComponent<CommandControl>().setLeft();
+                isMovingBackward = true;
+                isMovingForward = false;
+                foreach (GameObject commandControl in listOfCommandControl)
+                {
+                    commandControl.GetComponent<CommandControl>().setLeft();
+                }
+
             }
-
-        }
-        else if (Input.GetKeyDown("right"))
-        {
-            isMovingBackward = false;
-            isMovingForward = true;
-
-            foreach (GameObject commandControl in listOfCommandControl)
+            else if (Input.GetKeyDown("right"))
             {
-                commandControl.GetComponent<CommandControl>().setRight();
+                isMovingBackward = false;
+                isMovingForward = true;
+
+                foreach (GameObject commandControl in listOfCommandControl)
+                {
+                    commandControl.GetComponent<CommandControl>().setRight();
+                }
+
+
             }
-
-           
-        }
-        else if (Input.GetKeyDown("down"))
-        {
-            isMovingBackward = false;
-            isMovingForward = false;
-
-            foreach (GameObject commandControl in listOfCommandControl)
+            else if (Input.GetKeyDown("down"))
             {
-                commandControl.GetComponent<CommandControl>().setMid();
-            }
+                isMovingBackward = false;
+                isMovingForward = false;
 
+                foreach (GameObject commandControl in listOfCommandControl)
+                {
+                    commandControl.GetComponent<CommandControl>().setMid();
+                }
+
+            }
         }
+
+       
 
     }
 

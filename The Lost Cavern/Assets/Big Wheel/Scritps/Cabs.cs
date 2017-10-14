@@ -4,7 +4,9 @@ public class Cabs : MonoBehaviour {
 
     public GameObject CamPrefab;
     public GameObject CommandControlPrefab;
+    public GameObject player;
 
+  
 
     void Start ()
     {
@@ -20,5 +22,13 @@ public class Cabs : MonoBehaviour {
 
         }
     }
+
+    void Update()
+    {
+        
+
+    }
+
+   
 
 }

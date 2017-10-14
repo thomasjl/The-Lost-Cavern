@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "The Lost Cavern", "Assembly-CSharp.csproj", "{8440F7F5-19A0-F03E-6804-4C2D0ED3E9B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "The Lost Cavern", "Assembly-CSharp-Editor.csproj", "{C50EEDB8-48D9-CC47-CB69-7E4C16DAC597}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{8440F7F5-19A0-F03E-6804-4C2D0ED3E9B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8440F7F5-19A0-F03E-6804-4C2D0ED3E9B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8440F7F5-19A0-F03E-6804-4C2D0ED3E9B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C50EEDB8-48D9-CC47-CB69-7E4C16DAC597}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C50EEDB8-48D9-CC47-CB69-7E4C16DAC597}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C50EEDB8-48D9-CC47-CB69-7E4C16DAC597}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C50EEDB8-48D9-CC47-CB69-7E4C16DAC597}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

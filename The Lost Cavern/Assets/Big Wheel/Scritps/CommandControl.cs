@@ -14,12 +14,16 @@ public class CommandControl : MonoBehaviour {
     private float rotateTime = 0.5f;
 
     private string currentPosition;
+    private GameObject axe;
 
     void Start ()
     {
         left = new Vector3(-23.31f, 0, 0);
         mid = new Vector3(0, 0, 0);
         right = new Vector3(23.31f, 0, 0);
+
+        axe = GameObject.FindGameObjectWithTag("Axe");
+        //axe.GetComponent<Axe>().canControl = true;
          
         currentRot = command.transform.localEulerAngles;
 
@@ -90,37 +94,6 @@ public class CommandControl : MonoBehaviour {
 
         command.transform.localEulerAngles = currentRot;
     }
-
-    void Update ()
-    {
-        Debug.Log("position : " + position);
-
-             
-        //command.transform.rotation = Quaternion.Euler(Mathf.Lerp(command.transform.rotation.eulerAngles.x, currentRot.x, Time.deltaTime*5f), 0, 0); 
-
-        //command.transform.rotation = 
-
-
-
-            //Quaternion.Lerp(   command.transform.rotation, currentRot, Time.deltaTime*5f);        
-
-        //command doit etre aligner a currentRot
-        /*
-        if (timer < rotateTime)
-        {
-            command.transform.localEulerAngles = Vector3.Slerp(command.transform.localEulerAngles, currentRot, timer / rotateTime);
-            timer += Time.deltaTime;
-        }
-        else if (timer >= rotateTime)
-        {
-            currentPosition = position;
-            timer = 0;
-        }
-        */
-
-
-       
-
-    }
+      
 	
 }

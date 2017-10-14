@@ -6,6 +6,14 @@ TagManager:
   tags:
   - Axe
   - CommandControl
+  - RotationPoint
+  - yMax
+  - yMin
+  - xMax
+  - xMin
+  - zMax
+  - zMin
+  - Cab
   layers:
   - Default
   - TransparentFX
