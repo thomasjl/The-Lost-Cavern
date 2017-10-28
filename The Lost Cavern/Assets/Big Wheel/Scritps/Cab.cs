@@ -5,6 +5,8 @@ public class Cab : MonoBehaviour {
     public Material transparent;
     public Material originalMaterial;
 
+    public GameObject CommandControlPrefab;
+
     private GameObject axe;
     private Quaternion startRotation;
 
@@ -17,9 +19,8 @@ public class Cab : MonoBehaviour {
     private bool canAccess;
     private GameObject player;
 
-
-
-
+    public bool inside;
+    private GameObject goodRotationForPlayer;
 
     void Start ()
     {     
@@ -36,17 +37,59 @@ public class Cab : MonoBehaviour {
 
         player = GameObject.FindGameObjectWithTag("Player");
         axe = GameObject.FindGameObjectWithTag("Axe");
+
+        goodRotationForPlayer = new GameObject();
+        goodRotationForPlayer.transform.position = transform.position;
+        Vector3 tempRotation = transform.localEulerAngles + new Vector3(-130f, -90f, 180f);
+        goodRotationForPlayer.transform.localEulerAngles = tempRotation;
+        goodRotationForPlayer.transform.parent = transform;
+        goodRotationForPlayer.name = "PlayerRotation";
+     
+        GameObject commandControl = Instantiate(CommandControlPrefab, transform.position + new Vector3(0,0,-6f), Quaternion.identity);
+       
+        commandControl.transform.localEulerAngles = new Vector3(0f, -90f, 0f);
+        commandControl.transform.parent = transform;
+
+        inside = false;
     }
 
     void Update ()
     {
+        if (inside)
+        {
+            goodRotationForPlayer.transform.position = transform.position;
+            player.transform.position = goodRotationForPlayer.transform.position;
+            canAccess = false;
+
+        }
+
         if (canAccess && Input.GetMouseButtonDown(1))
         {
-            Debug.Log("can enter");
-            player.SetActive(false);
+            Debug.Log("can enter in "+ gameObject.name);
 
-            transform.GetChild(0).gameObject.SetActive(true);
-            //GetComponentInChildren<Camera>().gameObject.SetActive(true);
+            //insere le gameobject dans la hierarchie, pour que le player voit correctement
+           
+
+            inside = true;
+            //change la position du player, pour le mettre dans la cabine
+            player.transform.position = goodRotationForPlayer.transform.position;
+            //instantie en tant qu'enfant, pour que le personnage suive la cabine
+            player.transform.parent = goodRotationForPlayer.transform;
+
+            //l'immobilise (walk+run à 0)
+            player.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_WalkSpeed = 0;
+            player.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_RunSpeed = 0;
+
+            //desactive gravite du player
+            //player.GetComponent<Rigidbody>().useGravity = false;
+
+
+            //desactive player
+            //player.SetActive(false);
+
+            //active camera
+            //transform.GetChild(0).gameObject.SetActive(true);
+
             GetComponent<MeshRenderer>().materials = materials;
             canAccess = false;
             axe.GetComponent<Axe>().canControl = true;

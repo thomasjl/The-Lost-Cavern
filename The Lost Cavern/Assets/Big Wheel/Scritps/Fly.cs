@@ -24,13 +24,13 @@ public class Fly : MonoBehaviour {
  
     private float timer;
     private bool isVisible;
-    private GameObject cam;
+    private GameObject player;
 
     void Start()
     {          
         rb = GetComponent<Rigidbody>();
         rotationPoint = GameObject.FindGameObjectWithTag("RotationPoint");
-        cam = GameObject.FindGameObjectWithTag("MainCamera");
+        player = GameObject.FindGameObjectWithTag("Player");
         yMin = GameObject.FindGameObjectWithTag("yMin");
         yMax = GameObject.FindGameObjectWithTag("yMax");
         canMove = true;
@@ -72,7 +72,7 @@ public class Fly : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        if (isVisible && cam.GetComponent<CameraControls>().isZooming)
+        if (isVisible && player.GetComponent<CameraControls>().isZooming)
         {
             timer += Time.deltaTime;
         }

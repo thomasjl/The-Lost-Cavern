@@ -11,16 +11,17 @@ public class Cabs : MonoBehaviour {
     void Start ()
     {
         
-
+        /*
         // for each cab; instantiate a disabled camera + command control
         //GameObject[] listOfCabs = GetComponentsInChildren<GameObject>();
         foreach (Transform cab in transform)
         {
-            Instantiate(CamPrefab, cab);
+            //Instantiate(CamPrefab, cab);
             Instantiate(CommandControlPrefab, cab);
 
 
         }
+        */
     }
 
     void Update()

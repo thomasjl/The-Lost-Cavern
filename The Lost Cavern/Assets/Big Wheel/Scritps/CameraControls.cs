@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CameraControls : MonoBehaviour {
 
-    public float mouseSensitivity = 100.0f;
-    public float clampAngle = 80.0f;
+   // public float mouseSensitivity = 100.0f;
+   // public float clampAngle = 80.0f;
 
-    private float rotY = 0.0f; // rotation around the up/y axis
-    private float rotX = 0.0f; // rotation around the right/x axis
+   // private float rotY = 0.0f; // rotation around the up/y axis
+    //private float rotX = 0.0f; // rotation around the right/x axis
 
     public float normalFieldOfView;
     public float zoomFieldOfView;
@@ -20,23 +20,21 @@ public class CameraControls : MonoBehaviour {
 
     void Start ()
     {
-        //line = GetComponent<LineRenderer>();
+       /*
         Vector3 rot = transform.localRotation.eulerAngles;
         rotY = rot.y;
         rotX = rot.x;
-
-        cam = GetComponent<Camera>();
-        isZooming = false;
-        /*
-        line.SetVertexCount(2);
-        line.SetWidth(.1f, .1f);
-        line.SetPosition(0, transform.position + new Vector3(0.22f,0,0.25f));
         */
-    }
+
+        //cam = GetComponent<Camera>();
+        cam = GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_Camera;
+        isZooming = false;
+
+        }
 
     void Update ()
     {
-
+        /*
         //rotation
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = -Input.GetAxis("Mouse Y");
@@ -49,6 +47,7 @@ public class CameraControls : MonoBehaviour {
         Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
         transform.rotation = localRotation;
 
+        */
         if (Input.GetMouseButton(0))
         {
             Debug.Log("mouse button is done");

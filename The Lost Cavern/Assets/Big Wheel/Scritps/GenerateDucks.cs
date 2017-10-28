@@ -46,6 +46,7 @@ public class GenerateDucks : MonoBehaviour {
 
             yield return new WaitForSeconds(2f);
 
+            Debug.Log("prefabduck : " + prefabDuck);
             Instantiate(prefabDuck, initPos, Quaternion.identity);
 
         }

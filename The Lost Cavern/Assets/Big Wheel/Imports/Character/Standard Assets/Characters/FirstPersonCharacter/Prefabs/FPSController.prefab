@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 5400000}
   - component: {fileID: 8200000}
   - component: {fileID: 136965613611900584}
+  - component: {fileID: 114266676489102968}
   m_Layer: 0
   m_Name: FPSController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +46,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -217.9, z: -257.2}
+  m_LocalPosition: {x: 0, y: -243.9, z: -8.8}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 400002}
@@ -143,7 +144,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 194.42969
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -215,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsWalking: 0
-  m_WalkSpeed: 10
+  m_WalkSpeed: 6
   m_RunSpeed: 10
   m_RunstepLenghten: 0.7
   m_JumpSpeed: 10
@@ -305,6 +306,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+  m_Camera: {fileID: 0}
+  startWalkSpeed: 0
 --- !u!124 &12474086
 Behaviour:
   m_ObjectHideFlags: 1
@@ -340,6 +343,20 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
+--- !u!114 &114266676489102968
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 357b9fc45b5135b4facf4fa846986e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalFieldOfView: 60
+  zoomFieldOfView: 30
+  isZooming: 0
 --- !u!136 &136965613611900584
 CapsuleCollider:
   m_ObjectHideFlags: 1
