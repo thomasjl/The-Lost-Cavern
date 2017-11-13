@@ -4,29 +4,46 @@ using UnityEngine;
 
 public class VacuumController : MonoBehaviour {
 
-	private float distanceToObject;
-	public const int RAYCASTLENGTH = 10;
+	private float distanceToObj;
+	private int RAYCASTLENGTH = 5;
+	private Rigidbody attachedObject;
+
 	public CursorMode cursorMode = CursorMode.Auto;
-	public Vector2 hotSpot = new Vector2(16,16);
-	public Texture2D cursorOff, cursorDragged, cursorDraggable;
+	public Vector2 hotSpot = new Vector2(16, 16);	// Offset du centre du curseur
+
+	public int sugarInventory = 0;
 	// Use this for initialization
-	void Start () {
-		distanceToObject = -1;
-		Cursor.SetCursor (cursorOff, hotSpot, cursorMode);
+	void Start () 
+	{
+		distanceToObj = -1;	
 		Cursor.visible = true;
 	}
 	
-	// Update is called once per frame
 	void Update () {
+		AspiratorBlower ();
+	}
+
+	void AspiratorBlower () {
 		RaycastHit hitInfo;
-		// Ray ray = GetComponentInChildren<Camera> ().ScreenPointToRay (Input.mousePosition);
-		Debug.DrawRay (this.transform.position, this.transform.forward * RAYCASTLENGTH, Color.blue);
-		bool rayCasted = Physics.Raycast (this.transform.position, this.transform.forward, out hitInfo, RAYCASTLENGTH);
-		if (rayCasted && hitInfo.transform.CompareTag ("Suggarable")) {
-			if (Input.GetMouseButtonDown (0)) {
+		Ray ray = GetComponentInChildren<Camera>().ScreenPointToRay(Input.mousePosition);
+		Debug.DrawRay (ray.origin, ray.direction * RAYCASTLENGTH, Color.blue);
+		bool rayCasted = Physics.Raycast (ray, out hitInfo, RAYCASTLENGTH);
+		if (Input.GetMouseButton (0)) {
+			if (rayCasted && hitInfo.transform.CompareTag ("Suggarable")) {
 				Destroy (hitInfo.collider.gameObject);
-				Debug.Log ("Sugar obtenu");
+				SugarGenerator.sugarCounter--;
+				ManageSugar ();
+			} else if (rayCasted && hitInfo.transform.CompareTag ("CandyMachine")) {
+				Debug.Log("Ce n'est pas encore le moment, récupère des sucres!");
 			}
 		}
+	}
+		
+	void ManageSugar () {
+		sugarInventory++;
+	}
+
+	void displayNumberSugar () {
+
 	}
 }
