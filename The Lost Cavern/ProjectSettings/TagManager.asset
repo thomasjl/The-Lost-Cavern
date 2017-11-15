@@ -14,6 +14,9 @@ TagManager:
   - zMax
   - zMin
   - Cab
+  - Suggarable
+  - CandyMachine
+  - Blower
   layers:
   - Default
   - TransparentFX
