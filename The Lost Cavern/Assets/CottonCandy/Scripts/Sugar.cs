@@ -51,5 +51,6 @@ public class Sugar : MonoBehaviour {
     void sugarCollected()
     {
         Destroy(gameObject);
+		SugarGenerator.sugarCounter--;
     }
 }
