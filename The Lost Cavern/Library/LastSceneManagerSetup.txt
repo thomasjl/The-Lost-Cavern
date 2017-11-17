@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/CottonCandy/Scenes/CottonCandy.unity
+- path: Assets/Big Wheel/Scenes/Big Wheel.unity
   isLoaded: 1
   isActive: 1

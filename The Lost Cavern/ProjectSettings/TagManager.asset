@@ -17,6 +17,7 @@ TagManager:
   - Suggarable
   - CandyMachine
   - Blower
+  - GameManager
   layers:
   - Default
   - TransparentFX
