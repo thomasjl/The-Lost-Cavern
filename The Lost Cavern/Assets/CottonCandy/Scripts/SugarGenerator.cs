@@ -23,7 +23,7 @@ public class SugarGenerator : MonoBehaviour {
 	void Update () {
 		if (sugarCounter < NUMBEROFSUGARS) {
 			float x = Random.Range (planeBounds.min.x, planeBounds.max.x *2);
-			float y = Random.Range (0.5f, 4f);
+			float y = Random.Range (1f, 2f);
 			float z = Random.Range (planeBounds.min.z, planeBounds.max.z);
 			Vector3 sugarPosition = new Vector3 (x, y, z);
 			Debug.Log("Création d'un sucre en ("+ x + "," + y + "," + z +")");

@@ -77,7 +77,7 @@ public class VacuumController : MonoBehaviour {
 				Debug.Log("Ce n'est pas encore le moment, récupère des sucres!");
 			}
 		}
-  */      
+  */    
 	}
 		
 	void ManageSugar () {
