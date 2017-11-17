@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SugarGenerator : MonoBehaviour {
 
-	const int NUMBEROFSUGARS = 4;
+	const int NUMBEROFSUGARS = 20;
 	public static int sugarCounter;
 	public GameObject plane;
 	public GameObject sugar;
@@ -22,9 +22,9 @@ public class SugarGenerator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (sugarCounter < NUMBEROFSUGARS) {
-			float x = Random.Range (planeBounds.min.x, planeBounds.max.x *2);
+			float x = Random.Range (planeBounds.min.x + 1, planeBounds.max.x);
 			float y = Random.Range (1f, 2f);
-			float z = Random.Range (planeBounds.min.z, planeBounds.max.z);
+			float z = Random.Range (planeBounds.min.z + 1, planeBounds.max.z -1);
 			Vector3 sugarPosition = new Vector3 (x, y, z);
 			Debug.Log("Création d'un sucre en ("+ x + "," + y + "," + z +")");
 			Instantiate(sugar, sugarPosition, Quaternion.identity);
