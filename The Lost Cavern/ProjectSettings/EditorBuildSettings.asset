@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/ViveTest/ViveTest.unity
+    guid: 2db857ec222c0e343a0899eb72aaee2e

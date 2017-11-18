@@ -13,8 +13,13 @@ public class CameraControls : MonoBehaviour {
     public float normalFieldOfView;
     public float zoomFieldOfView;
 
+    public GameObject referenceFishingRob;
+    public GameObject referenceScriptFishingRob;
+
     private Camera cam;
     public bool isZooming;
+
+    public bool hookSth;
 
     //private LineRenderer line;
 
@@ -29,11 +34,13 @@ public class CameraControls : MonoBehaviour {
         //cam = GetComponent<Camera>();
         cam = GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_Camera;
         isZooming = false;
+        hookSth = false;
 
         }
 
     void Update ()
-    {
+    {        
+
         /*
         //rotation
         float mouseX = Input.GetAxis("Mouse X");
@@ -48,7 +55,7 @@ public class CameraControls : MonoBehaviour {
         transform.rotation = localRotation;
 
         */
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !hookSth)
         {
             Debug.Log("mouse button is done");
             isZooming = true;
@@ -72,8 +79,5 @@ public class CameraControls : MonoBehaviour {
                 
                
     }
-
-
-
 
 }

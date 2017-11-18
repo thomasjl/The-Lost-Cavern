@@ -18,6 +18,7 @@ TagManager:
   - CandyMachine
   - Blower
   - GameManager
+  - Undefined
   layers:
   - Default
   - TransparentFX

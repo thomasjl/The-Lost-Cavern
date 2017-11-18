@@ -40,7 +40,7 @@ public class GenerateDucks : MonoBehaviour {
         int xSign = Random.Range(0, 2) * 2 - 1;
         int zSign = Random.Range(0, 2) * 2 - 1;
 
-        for (int i=0; i < 10; i++)
+        for (int i=0; i < 5; i++)
         {
             Vector3 initPos = new Vector3(xSign*Random.Range(xMin.transform.position.x, xMax.transform.position.x), Random.Range(yMin.transform.position.y, yMax.transform.position.y), zSign * Random.Range(zMin.transform.position.z, zMax.transform.position.z));
 

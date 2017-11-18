@@ -60,12 +60,12 @@ public class Cab : MonoBehaviour {
             goodRotationForPlayer.transform.position = transform.position;
             player.transform.position = goodRotationForPlayer.transform.position;
             canAccess = false;
-
+            //Debug.Log("player rotation in cab : " + player.transform.localEulerAngles.x + " " + player.transform.localEulerAngles.y + " " + player.transform.localEulerAngles.z);
         }
 
         if (canAccess && Input.GetMouseButtonDown(1))
         {
-            Debug.Log("can enter in "+ gameObject.name);
+            Debug.Log("enter in "+ gameObject.name);
 
             //insere le gameobject dans la hierarchie, pour que le player voit correctement
            
@@ -80,15 +80,6 @@ public class Cab : MonoBehaviour {
             player.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_WalkSpeed = 0;
             player.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_RunSpeed = 0;
 
-            //desactive gravite du player
-            //player.GetComponent<Rigidbody>().useGravity = false;
-
-
-            //desactive player
-            //player.SetActive(false);
-
-            //active camera
-            //transform.GetChild(0).gameObject.SetActive(true);
 
             GetComponent<MeshRenderer>().materials = materials;
             canAccess = false;
@@ -100,9 +91,7 @@ public class Cab : MonoBehaviour {
     {
         //to disable cabs rotation
         transform.rotation = startRotation;
-
-
-       
+               
     }
 
     void OnTriggerEnter (Collider other)

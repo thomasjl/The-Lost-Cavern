@@ -21,10 +21,14 @@ public class Fly : MonoBehaviour {
     private GameObject yMin;
     private Rigidbody rb;
     private bool canMove;
+
+    private bool hooked;
  
     private float timer;
     private bool isVisible;
     private GameObject player;
+
+    private GameObject fishingRod;
 
     void Start()
     {          
@@ -35,8 +39,11 @@ public class Fly : MonoBehaviour {
         yMax = GameObject.FindGameObjectWithTag("yMax");
         canMove = true;
 
+        //fishingRod = GameObject.FindGameObjectWithTag("FishingRod");
+
         timer = 0f;
         isVisible = false;
+        hooked = false;
 
     }
 
@@ -53,23 +60,47 @@ public class Fly : MonoBehaviour {
             isVisible = true;
         }
        
-        Debug.Log(gameObject.name + " on screen");
+        //Debug.Log(gameObject.name + " on screen");
 
     }
 
     void OnBecameInvisible()
     {
         isVisible = false;
-        Debug.Log(gameObject.name + " out of screen");
+        timer = 0;
+        //Debug.Log(gameObject.name + " out of screen");
     }
         
 
     void Update()
-    {         
-        Debug.Log("timer : " + timer);
-        if (timer >= 4.0f)
+    {      
+        //calcul de la distance entre le canard et le joueur. Si la distance est inferieur a 7, le canard est attrape
+        float distanceBtGooseAndPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+        if (distanceBtGooseAndPlayer <= 10f)
         {
+            Debug.Log("goose captured !");
+            player.GetComponent<CameraControls>().referenceScriptFishingRob.GetComponent<ReelMovement>().gooseCatched++;
+            player.GetComponent<CameraControls>().referenceFishingRob.SetActive(false);
+            player.GetComponent<CameraControls>().hookSth = false;
+            player.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_MouseLook.XSensitivity = 2;
+            player.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_MouseLook.YSensitivity = 2;
             Destroy(gameObject);
+        }
+
+        if (hooked)
+        {
+            return;
+        }
+
+        //Debug.Log("timer : " + timer);
+        if (timer >= 4.0f)
+        {            
+            player.GetComponent<CameraControls>().referenceFishingRob.SetActive(true);
+            player.GetComponent<CameraControls>().referenceScriptFishingRob.GetComponent<ReelMovement>().gooseHooked = gameObject;
+            player.GetComponent<CameraControls>().hookSth = true;
+            hooked = true;
+            //Destroy(gameObject);
         }
 
         if (isVisible && player.GetComponent<CameraControls>().isZooming)
@@ -149,9 +180,7 @@ public class Fly : MonoBehaviour {
         canMove = true;
     }
 
-   
-
-
+       
 
 	
 }
