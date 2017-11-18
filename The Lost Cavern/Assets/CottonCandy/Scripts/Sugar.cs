@@ -48,8 +48,19 @@ public class Sugar : MonoBehaviour {
                
     }
 
+	void onCollisionEnter(Collider col)
+	{
+		if (col.gameObject.tag == "CandyMachine")
+		{
+			Debug.Log("Collision avec la machine");
+			Destroy(gameObject);
+			SugarGenerator.sugarCounter--;
+		}
+	}
+
     void sugarCollected()
     {
+		GameFunctions.goalScore();
         Destroy(gameObject);
 		SugarGenerator.sugarCounter--;
     }
