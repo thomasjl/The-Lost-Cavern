@@ -13,9 +13,12 @@ public class SugarGenerator : MonoBehaviour {
 	public static bool isFinished = false;
 	public GameObject[] gameObjects;
 	public GameObject blower;
+	public GameObject shaker;
 
 	// Use this for initialization
 	void Start () {
+		//blower.SetActive(true);
+		//shaker.SetActive(false);
 		sugarCounter = 0;
 		planeBounds = plane.GetComponent<Renderer> ().bounds;
 		sugarSize = sugar.GetComponent<Renderer>().bounds.size;
@@ -51,6 +54,7 @@ public class SugarGenerator : MonoBehaviour {
 			Destroy(gameObjects[i]);
 		}
 		blower.SetActive(false);
+		shaker.SetActive(true);
 
 	}
 }

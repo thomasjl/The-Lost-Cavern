@@ -18,7 +18,7 @@ public class ScoreDisplay : MonoBehaviour
 		text.text = "Il vous manque " + GameFunctions.goal + " sucre(s)";
 		if (GameFunctions.goal == 0)
 		{
-			text.text = "Vous avez collectés assez de sucres, versez les dans la machine";
+			text.text = "Vous avez collectés assez dse sucres, versez les dans la machine";
 		}
 	}
 }

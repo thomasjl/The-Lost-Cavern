@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameFunctions : MonoBehaviour {
 
-	public static int goal = 1;
+	public static int goal = 4;
 
 	void Start()
 	{
